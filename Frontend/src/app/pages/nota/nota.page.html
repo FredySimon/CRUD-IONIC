@@ -1,0 +1,55 @@
+<ion-header  no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons style="margin-bottom: auto" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="font-family: 'Rubik Mono One', sans-serif; margin-top: 10px;" align="center">Notas</ion-title>
+    <ion-searchbar style="width: 100%; margin-top: 10px; margin-bottom: 20px;" animated color="dark" showCancelButton="never" placeholder="buscar nota" (ionChange)="buscar( $event )"></ion-searchbar>
+  </ion-toolbar>
+
+  
+</ion-header>
+
+<ion-content>
+
+    <ion-fab style="font-family: 'Rajdhani', sans-serif;"  horizontal="end" vertical="top" slot="fixed"  class="fab-horizontal-end fab-vertical-top fab-edge ">
+        <ion-fab-button color="secondary" extend="full" (click)="abrirModal()">
+            <ion-icon color="dark" name="add"></ion-icon>
+          </ion-fab-button>
+    </ion-fab>
+
+    <!-- *ngFor="let nota of nota_service.notas  | lowercase | filtro: filtro_nota: 'nombre_nota'" -->
+
+  <ion-card color="primary" *ngFor="let nota of nota_service.notas">
+    <img style=" border: black 5px solid;" src="https://cdn.pixabay.com/photo/2017/06/10/07/24/note-2389227_960_720.png">
+    <ion-card-header>
+      <ion-card-title style="padding: 10px; font-size: 15px; background: grey; color: white; font-family: 'Rubik Mono One', sans-serif;" aria-level="2">{{ nota.nombre_nota }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <p style="padding: 10px; background: rgb(185, 184, 184); color: black; font-family: 'Rajdhani', sans-serif;">{{ nota.descripcion }}</p>
+        
+        <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+            <ion-fab-button color="light">
+              <ion-icon name="settings"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="start">
+              <ion-fab-button (click)="editNota(nota)" color="light">
+                <ion-icon name="create"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button extend="full" (click)="obtenerNota(nota)" color="light">
+                <ion-icon name="eye"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="deleteNota(nota._id)" color="light">
+                  <ion-icon name="trash"></ion-icon>
+                </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+  
+    

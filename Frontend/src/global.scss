@@ -1,0 +1,28 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+body {
+    background-color: aqua
+}
+
+.ajustes .modal-wrapper {
+    height: 50%;
+    width: 90%;
+    top: auto;
+    position: absolute; 
+    display: block;  
+ }
+
+ .toasteliminar {
+    border-color: black 5px solid;
+    color: black;
+ }

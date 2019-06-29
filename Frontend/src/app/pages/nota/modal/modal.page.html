@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-family: 'Rubik Mono One', sans-serif;" *ngIf="this.nota_service.selectedNota._id === ''">Crear Nota</ion-title> 
+    <ion-title style="font-family: 'Rubik Mono One', sans-serif;" *ngIf="this.nota_service.selectedNota._id !== ''">Editar Nota</ion-title> 
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #notaForm="ngForm" (ngSubmit)="addNota(notaForm)">
+
+      <ion-input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="nota_service.selectedNota._id"></ion-input>
+    
+    <ion-item>
+      <ion-label style="font-family: 'Rajdhani', sans-serif;" position="floating">Nombre de nota</ion-label>
+      <ion-input type="text" name="nombre_nota" #nombre_nota="ngModel"
+        [(ngModel)]="nota_service.selectedNota.nombre_nota" clearInput required></ion-input>
+    </ion-item>
+
+    <ion-item style="font-family: 'Rajdhani', sans-serif;">
+      <ion-label style="font-family: 'Rajdhani', sans-serif;" position="floating">Description</ion-label>
+      <ion-textarea name="descripcion" #descripcion="ngModel"
+      [(ngModel)]="nota_service.selectedNota.descripcion" required clearInput></ion-textarea>
+    </ion-item>
+
+    <ion-button style="margin-left: 3px; margin-right: 3px; margin-top: 5px; font-family: 'Rajdhani', sans-serif;" type="submit" expand="block" fill="outline">Guardar<ion-icon slot="end" name="save"></ion-icon></ion-button>
+
+  </form>
+</ion-content>
